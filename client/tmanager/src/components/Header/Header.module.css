@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    margin: 35px 52px;
+}
+
+.hs-logo {
+    background-image: url(../Header/assets/hs-logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 226px;
+    height: 28px;
+}
+
+.active-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 400px;
+}
+
+.nt-slider {
+    background-image: url(../Header/assets/switch.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 90px;
+    height: 30px;
+    cursor: pointer;
+}
+.text-header {
+    display: flex;
+}
+
+.text-header p{
+    margin: auto;
+    margin-left: 40px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.03em;
+    color: #4A4A4AB8;
+    cursor: pointer;
+}
+
+.registration {
+    cursor: pointer;
+    width: 151px;
+    height: 34px;
+    border-radius: 13.0536px;
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.15));
+    background-color: #31C2E4;
+}
+
+.login {
+    margin: auto;
+    cursor: pointer;
+    width: 151px;
+    height: 34px;
+    border-radius: 13.0536px;
+    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.15));
+    border: 2px solid #31C2E4;
+}
+
+.reg {
+    margin: auto;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    margin-left: 45px;
+    padding-top: 3.7px;
+    font-size: 16px;
+    color: #ffff;
+}
+
+.log {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    margin-left: 55px;
+    padding-top: 3.7px;
+    font-size: 16px;
+    color: #ffff;
+    color: #31C2E4;
+}
