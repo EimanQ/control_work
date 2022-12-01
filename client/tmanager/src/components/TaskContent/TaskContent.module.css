@@ -1,0 +1,264 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+    margin: 0;
+}
+
+.task-section {
+    display: flex;
+    position: relative;
+}
+
+.aside-panel {
+    padding-top: 10px;
+    padding-bottom: 460px;
+    margin-right: 45px;
+    padding-left: 15px;
+    width: 50px;
+    height: 207px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.burger {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(./assets/burger.svg);
+    width: 30px;
+    height: 30px;
+}
+
+.select-cube {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(./assets/cube.svg);
+    width: 30px;
+    height: 30px;
+}
+
+.settings {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(./assets/settings.svg);
+    width: 30px;
+    height: 30px;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    width: 1100px;
+}
+
+.header .hs-logo {
+    background-image: url(./assets/hs-logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 226px;
+    height: 28px;
+    height: 35px;
+}
+
+.header .logout-button {
+    cursor: pointer;
+    width: 120px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1.5px solid rgba(74, 74, 74, 0.54);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.header .logout-button p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 3px;
+}
+
+.main {
+    z-index: 3;
+    width: 70%;
+}
+
+.work-zone {
+    z-index: 2;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.work-zone .tasks-manager-list {
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+}
+
+.work-zone .tasks-manager-list .tasks-manager-title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.work-zone .tasks-manager-list .task-manager-info {
+    margin-top: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgba(74, 74, 74, 0.45);
+}
+
+.work-zone .tasks-manager-list .task-manager-box {
+    position: relative;
+    margin-top: 20px;
+    width: 166px;
+    height: 151px;
+    background: linear-gradient(39.54deg, #31C2E4 0%, #99DAEA 97.99%);
+    box-shadow: inset 0px 4px 4px rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+}
+
+.work-zone .tasks-manager-list .task-manager-box .calendar-logo {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    background-image: url(./assets/calendar.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 34px;
+    height: 34px;
+}
+
+.work-zone .tasks-manager-list .task-manager-box .tasks-counter {
+    position: absolute;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    color: #fff;
+    font-size: 35px;
+    left: 20px;
+    top: 75px;
+}
+
+.work-zone .to-do-list .to-do-title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.work-zone .to-do-list .to-do-create,
+.to-do-update,
+.to-do-delete {
+    margin-top: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: rgba(74, 74, 74, 0.45);
+}
+
+.work-zone .to-do-list input {
+    padding-left: 13px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+.work-zone .to-do-list .to-do-create-input,
+.to-do-delete-input {
+    margin-top: 10px;
+    background: #FFFFFF;
+    border: 2px solid rgba(74, 74, 74, 0.2);
+    border-radius: 10px;
+    width: 320.82px;
+    height: 33px;
+}
+
+.work-zone .to-do-list .to-do-update-inputs {
+
+    display: flex;
+    margin-top: 10px;
+    width: 337.82px;
+    justify-content: space-between;
+}
+
+.work-zone .to-do-list .to-do-update-inputs input {
+
+    background: #FFFFFF;
+    border: 2px solid rgba(74, 74, 74, 0.2);
+    border-radius: 10px;
+    width: 125px;
+    height: 33px;
+}
+
+.work-zone .to-do-list .to-do-save-button {
+    cursor: pointer;
+    margin-top: 20px;
+    width: 166px;
+    height: 28px;
+    background: #31C2E4;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 6px;
+}
+
+.main .work-zone .to-do-list .to-do-save-button p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    color: #fff;
+    font-size: 14px;
+}
+
+.main .work-zone .tasks-list-wrap .tasks-list-title {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.main .work-zone .tasks-list-wrap .tasks-list {
+    padding: 0px 25px;
+}
+
+.main .work-zone .tasks-list .tasks-list-ul li {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    list-style-type: decimal;
+    margin-top: 10px;
+
+}
+
+.task-section .task-footage {
+    background-image: url(./assets/Rectangle\ 56.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 498px;
+    height: 678px;
+    position: absolute;
+    z-index: 1;
+    left: 860px;
+}
+
+.task-section .task-footage2 {
+    background-image: url(./assets/Group\ 2.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 370px;
+    height: 450px;
+    position: absolute;
+    top: 180px;
+    left: 972px;
+    z-index: 2;
+}
