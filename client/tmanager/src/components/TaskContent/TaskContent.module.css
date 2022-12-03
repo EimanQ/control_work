@@ -9,44 +9,6 @@ input::-webkit-inner-spin-button {
     position: relative;
 }
 
-.aside-panel {
-    padding-top: 10px;
-    padding-bottom: 460px;
-    margin-right: 45px;
-    padding-left: 15px;
-    width: 50px;
-    height: 207px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.burger {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url(./assets/burger.svg);
-    width: 30px;
-    height: 30px;
-}
-
-.select-cube {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url(./assets/cube.svg);
-    width: 30px;
-    height: 30px;
-}
-
-.settings {
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url(./assets/settings.svg);
-    width: 30px;
-    height: 30px;
-}
-
-
 .header {
     display: flex;
     justify-content: space-between;
@@ -84,6 +46,7 @@ input::-webkit-inner-spin-button {
 .main {
     z-index: 3;
     width: 70%;
+    margin-left: 20px;
 }
 
 .work-zone {
@@ -145,6 +108,10 @@ input::-webkit-inner-spin-button {
     font-size: 35px;
     left: 20px;
     top: 75px;
+}
+
+.work-zone .to-do-list{
+    margin-left: 150px;
 }
 
 .work-zone .to-do-list .to-do-title {
@@ -219,6 +186,10 @@ input::-webkit-inner-spin-button {
     font-size: 14px;
 }
 
+.main .work-zone .tasks-list-wrap {
+    margin-left: 150px;
+}
+
 .main .work-zone .tasks-list-wrap .tasks-list-title {
     font-family: 'Poppins';
     font-style: normal;
@@ -228,6 +199,7 @@ input::-webkit-inner-spin-button {
 
 .main .work-zone .tasks-list-wrap .tasks-list {
     padding: 0px 25px;
+    width: 250px
 }
 
 .main .work-zone .tasks-list .tasks-list-ul li {
@@ -244,7 +216,7 @@ input::-webkit-inner-spin-button {
     background-image: url(./assets/Rectangle\ 56.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 498px;
+    width: 388px;
     height: 678px;
     position: absolute;
     z-index: 1;
@@ -255,7 +227,7 @@ input::-webkit-inner-spin-button {
     background-image: url(./assets/Group\ 2.svg);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 370px;
+    width: 270px;
     height: 450px;
     position: absolute;
     top: 180px;

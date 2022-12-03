@@ -51,18 +51,15 @@ const TaskContent = () => {
     return (
         <>
             <section className={style['task-section']}>
-                <aside className={style['aside-panel']}>
-                    <div className={style['burger']}></div>
-                    <div className={style['select-cube']}></div>
-                    <div className={style['settings']}></div>
-                </aside>
-
                 <div className={style['main']}>
                     <div className={style['header']}>
                         <div className={style['hs-logo']}></div>
-                        <div className={style['logout-button']}>
-                            <p>Log Out</p>
-                        </div>
+                        <a href='/'>
+                            <div className={style['logout-button']}>
+                                <p>Log Out</p>
+                            </div>
+                        </a>
+
                     </div>
 
                     <div className={style['work-zone']}>
