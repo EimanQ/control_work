@@ -3,9 +3,11 @@ import style from './Header.module.css';
 import HeaderItems from './HeaderItem';
 
 const Header = () => {
+    
     const link = [`Contact`, `Eu`]
     if (window.location.href === 'http://localhost:3000/') auth.isMain = true;
     else auth.isMain = false;
+
     return (
         <header>
             <div className={style['hs-logo']}></div>

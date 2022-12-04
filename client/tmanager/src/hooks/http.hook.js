@@ -6,9 +6,7 @@ const request = async (url, method, body = null, headers = {}) => {
         }
 
         const response = await fetch(url, { method, body, headers });
-        console.log(await response);
         const data = await response.json();
-        console.log(await data);
 
         return data
     } catch (error) {

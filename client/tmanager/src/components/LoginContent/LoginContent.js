@@ -1,20 +1,26 @@
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { request } from '../../hooks/http.hook';
-import { auth, userID } from '../../context/auth'
+import { auth, userID, userEmail, userName } from '../../context/auth'
 import style from './LoginContent.module.css';
 
 const LoginContent = () => {
 
     const navigate = useNavigate();
+
     const [emailInput, setEmailInput] = useState();
     const [passInput, setPassInput] = useState();
 
     const doLogin = async () => {
+
         const response = await request('http://localhost:3003/users/login', 'POST', { email: emailInput, password: passInput })
+
         if (response[0] != false) {
-            userID.id = response[1][0].id
-            navigate('/tasks', { state: { id: userID.id } });
+
+            userID.id = response[1][0].id;
+            userName.name = response[1][0].fullname;
+            userEmail.email = response[1][0].email;
+            navigate('/tasks');
         }
     }
 

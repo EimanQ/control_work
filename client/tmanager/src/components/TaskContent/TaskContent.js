@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { request } from '../../hooks/http.hook';
 import { useScrollBar } from '../../hooks/use-scrollbar';
+import { userName, userEmail, userID } from '../../context/auth'
 import style from './TaskContent.module.css';
 import TaskItem from './TaskItem';
 
@@ -9,66 +10,64 @@ const TaskContent = () => {
 
     const [saveButton, setSaveButton] = useState(false);
     const [task, setTask] = useState([]);
-
     const [createTask, setCreateTask] = useState(``);
     const [updateTaskNumber, setUpdateTaskNumber] = useState(``);
     const [updateTask, setUpdateTask] = useState(``);
     const [deleteTask, setDeleteTask] = useState(``);
 
     const { state } = useLocation();
-    const userID = state.id;
+
+    const currentID = state.id;
+    const currentUserName = state.name;
+
     const taskWrapper = useRef(null);
     const hasScroll = task.length > 15;
-
     useScrollBar(taskWrapper, hasScroll);
 
     const sendCRUD = async () => {
         setSaveButton(true)
         if (createTask.length > 0) {
-            const responseCreate = await request(`http://localhost:3003/tasks/createTask`, 'POST', { task: createTask, id: userID });
+            const responseCreate = await request(`http://localhost:3003/tasks/createTask`, 'POST', { task: createTask, id: currentID });
             if (responseCreate[0]) setSaveButton(false)
         }
 
         if (updateTaskNumber.length > 0 && updateTask.length > 0) {
-            const responseUpdate = await request(`http://localhost:3003/tasks/updateTask`, 'PATCH', { task: updateTask, tasknumber: task[updateTaskNumber - 1].id, id: userID });
+            const responseUpdate = await request(`http://localhost:3003/tasks/updateTask`, 'PATCH', { task: updateTask, tasknumber: task[updateTaskNumber - 1].id, id: currentID });
             if (responseUpdate[0]) setSaveButton(false)
         }
 
         if (deleteTask.length > 0) {
-            const responseDelete = await request(`http://localhost:3003/tasks/deleteTask`, 'DELETE', { tasknumber: task[deleteTask - 1].id, id: userID });
+            const responseDelete = await request(`http://localhost:3003/tasks/deleteTask`, 'DELETE', { tasknumber: task[deleteTask - 1].id, id: currentID });
             if (responseDelete[0]) setSaveButton(false)
         }
     }
     useEffect(() => {
         const requestDB = async () => {
-            const responseGet = await request(`http://localhost:3003/tasks/get/${userID}`, 'GET');
+            const responseGet = await request(`http://localhost:3003/tasks/get/${currentID}`, 'GET');
             return setTask(responseGet);
         }
         requestDB()
-    }, [saveButton, userID]);
+    }, [saveButton, currentID]);
 
 
     return (
         <>
             <section className={style['task-section']}>
-                <aside className={style['aside-panel']}>
-                    <div className={style['burger']}></div>
-                    <div className={style['select-cube']}></div>
-                    <div className={style['settings']}></div>
-                </aside>
-
                 <div className={style['main']}>
                     <div className={style['header']}>
                         <div className={style['hs-logo']}></div>
-                        <div className={style['logout-button']}>
-                            <p>Log Out</p>
-                        </div>
+                        <a href='/'>
+                            <div className={style['logout-button']}>
+                                <p>Log Out</p>
+                            </div>
+                        </a>
+
                     </div>
 
                     <div className={style['work-zone']}>
                         <div className={style['tasks-manager-list']}>
                             <p className={style['tasks-manager-title']}>Tasks Manager</p>
-                            <p className={style['task-manager-info']}>Hello Name Name! Add new tasks  with task manager from Hschool</p>
+                            <p className={style['task-manager-info']}>Hello {currentUserName}! Add new tasks  with task manager from Hschool</p>
                             <div className={style['task-manager-box']}>
                                 <div className={style['calendar-logo']}></div>
                                 <p className={style['tasks-counter']}>{task.length}</p>
