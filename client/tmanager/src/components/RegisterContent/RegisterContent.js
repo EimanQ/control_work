@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import style from './RegisterContent.module.css';
 import { request } from '../../hooks/http.hook';
-import { userID } from '../../context/auth';
+import { userID, userEmail, userName } from '../../context/auth';
 
 
 
@@ -17,8 +17,10 @@ const RegisterContent = () => {
     const doReg = async () => {
         const response = await request('http://localhost:3003/users/register', 'POST', { name: nameInput, email: emailInput, password: fPassInput })
         if (response[0] != false) {
-            userID.id = response[1][0].id
-            navigate('/tasks', { state: { id: userID.id } });
+            userID.id = response[1][0].id;
+            userName.name = response[1][0].fullname;
+            userEmail.email = response[1][0].email;
+            navigate('/tasks');
         }
     }
     return (

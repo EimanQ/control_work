@@ -1,0 +1,164 @@
+section .main-content {
+    position: relative;
+    margin-left: 60px;
+
+}
+
+section .back-ground {
+    z-index: 1;
+    position: absolute;
+    background: linear-gradient(92.09deg, #31C2E4 0%, #A9EFFF 47.84%, #9BDBEA 100%);
+    width: 1294px;
+    height: 215px;
+}
+
+section .main-content {
+    z-index: 1;
+}
+
+section .main-content .header {
+    width: 1150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+section .main-content .header .hs-logo {
+    margin-top: 40px;
+    background-image: url(./assets/hs-logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 226px;
+    height: 28px;
+    height: 35px;
+}
+
+section .main-content .header .logout-button {
+    margin-top: 40px;
+    cursor: pointer;
+    width: 120px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1.5px solid rgba(74, 74, 74, 0.54);
+    border-radius: 10px;
+    text-align: center;
+}
+
+section .main-content .header .logout-button p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 3px;
+    color: black
+}
+
+section .main-content .contact-info {
+    text-align: center;
+}
+
+section .main-content .contact-info .name {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+section .main-content .contact-info .email {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: rgba(74, 74, 74, 0.85);
+}
+
+section .personal-zone {
+    width: 1294px;
+    position: absolute;
+    z-index: 2;
+}
+
+section .personal-zone .profile-header {
+    width: 713px;
+    height: 55px;
+    background: #F6F8FA;
+    border: 0.45px solid rgba(74, 74, 74, 0.44);
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 45px;
+}
+
+section .personal-zone .profile-header p {
+    margin-top: 12px;
+    text-align: center;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    color: #31C2E4;
+}
+
+section .personal-zone .edit-zone {
+    width: 713px;
+    height: 425px;
+    background: #F6F8FA;
+    border: 0.45px solid rgba(74, 74, 74, 0.44);
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+section .personal-zone .edit-zone div {
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+}
+
+section .personal-zone .edit-zone p {
+    margin-top: 15px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    color: rgba(74, 74, 74, 0.45);
+}
+
+section .personal-zone .edit-zone input {
+    background: #FFFFFF;
+    border: 2px solid rgba(74, 74, 74, 0.2);
+    border-radius: 10px;
+    width: 285px;
+    height: 50px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    color: rgba(74, 74, 74, 0.3);
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+section .personal-zone .edit-zone .button-save {
+    margin-right: 10px;
+    width: 146px;
+    height: 45px;
+    background: #31C2E4;
+    border-radius: 10px;
+}
+
+section .personal-zone .edit-zone .button-save p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+    margin: auto;
+}
