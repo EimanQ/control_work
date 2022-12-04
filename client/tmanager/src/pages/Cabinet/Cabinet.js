@@ -1,9 +1,13 @@
 import CabinetContent from "../../components/CabinetContent/CabinetContent"
+import AsidePanel from "../../components/AsidePanel/AsidePanel"
 
 const Cabinet = () => {
     return (
         <>
-            <CabinetContent />
+            <main>
+                <AsidePanel />
+                <CabinetContent />
+            </main>
         </>
     )
 }

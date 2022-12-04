@@ -5,6 +5,7 @@ input::-webkit-inner-spin-button {
 }
 
 .task-section {
+    margin-left: 40px;
     display: flex;
     position: relative;
 }
@@ -13,7 +14,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
-    width: 1100px;
+    width: 1150px;
 }
 
 .header .hs-logo {
@@ -41,6 +42,7 @@ input::-webkit-inner-spin-button {
     font-weight: 400;
     font-size: 15px;
     margin-top: 3px;
+    color: gray
 }
 
 .main {
@@ -110,7 +112,7 @@ input::-webkit-inner-spin-button {
     top: 75px;
 }
 
-.work-zone .to-do-list{
+.work-zone .to-do-list {
     margin-left: 150px;
 }
 
@@ -216,7 +218,7 @@ input::-webkit-inner-spin-button {
     background-image: url(./assets/Rectangle\ 56.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 388px;
+    width: 393px;
     height: 678px;
     position: absolute;
     z-index: 1;

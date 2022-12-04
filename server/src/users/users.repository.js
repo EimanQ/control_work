@@ -8,7 +8,7 @@ const findUserDB = async (email, password) => {
         await client.query(`BEGIN`);
 
         const sqlFindUser = `
-        SELECT users.id FROM users
+        SELECT users.id, users.fullname, users.email FROM users
         WHERE users.email = $1 and users.password = $2
         `;
 
@@ -31,7 +31,7 @@ const createUserDB = async (name, email, password) => {
         const sqlCreateUser = `
         INSERT INTO users (fullname, email, password)
         VALUES ($1,$2,$3)
-        RETURNING users.id
+        RETURNING users.id, users.fullname, users.email
         `;
 
         const result = (await client.query(sqlCreateUser, [name, email, password])).rows
