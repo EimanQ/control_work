@@ -5,19 +5,56 @@ input::-webkit-inner-spin-button {
 }
 
 .task-section {
-    margin-left: 40px;
     display: flex;
     position: relative;
 }
 
-.header {
+.task-section .aside-panel {
+    margin-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 460px;
+    padding-left: 15px;
+    width: 50px;
+    height: 207px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.task-section .burger {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(./assets/burger.svg);
+    width: 30px;
+    height: 30px;
+}
+
+.task-section .select-cube {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(./assets/cube.svg);
+    width: 30px;
+    height: 30px;
+}
+
+.task-section .settings {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(./assets/settings.svg);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.task-section .header {
     display: flex;
     justify-content: space-between;
     margin-top: 40px;
     width: 1150px;
 }
 
-.header .hs-logo {
+.task-section .header .hs-logo {
     background-image: url(./assets/hs-logo.svg);
     background-repeat: no-repeat;
     background-size: contain;
@@ -26,7 +63,7 @@ input::-webkit-inner-spin-button {
     height: 35px;
 }
 
-.header .logout-button {
+.task-section .header .logout-button {
     cursor: pointer;
     width: 120px;
     height: 30px;
@@ -36,7 +73,7 @@ input::-webkit-inner-spin-button {
     text-align: center;
 }
 
-.header .logout-button p {
+.task-section .header .logout-button p {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -45,7 +82,7 @@ input::-webkit-inner-spin-button {
     color: gray
 }
 
-.main {
+.task-section .main {
     z-index: 3;
     width: 70%;
     margin-left: 20px;
@@ -218,7 +255,7 @@ input::-webkit-inner-spin-button {
     background-image: url(./assets/Rectangle\ 56.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    width: 393px;
+    width: 499px;
     height: 678px;
     position: absolute;
     z-index: 1;

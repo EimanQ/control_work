@@ -20,7 +20,7 @@ const RegisterContent = () => {
             userID.id = response[1][0].id;
             userName.name = response[1][0].fullname;
             userEmail.email = response[1][0].email;
-            navigate('/tasks');
+            navigate('/tasks', { state: { id: userID.id, name: userName.name, email: userEmail.email } });
         }
     }
     return (
