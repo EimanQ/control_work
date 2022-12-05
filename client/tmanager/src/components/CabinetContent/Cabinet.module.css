@@ -1,18 +1,60 @@
-section .main-content {
+section {
     position: relative;
-    margin-left: 60px;
-
+    display: flex;
+    z-index: 2;
 }
 
-section .back-ground {
-    z-index: 1;
+
+section .aside-panel {
+    padding-top: 10px;
+    padding-bottom: 460px;
+    padding-left: 15px;
+    width: 50px;
+    height: 207px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+}
+
+section .burger {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(./assets/burger.svg);
+    width: 30px;
+    height: 30px;
+}
+
+section .select-cube {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(./assets/cube.svg);
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+section .settings {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(./assets/settings.svg);
+    width: 30px;
+    height: 30px;
+}
+
+section .content{
+    margin-left: 40px;
+}
+
+section .content .back-ground {
+    background-image: url(./assets/gradient.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
     position: absolute;
-    background: linear-gradient(92.09deg, #31C2E4 0%, #A9EFFF 47.84%, #9BDBEA 100%);
     width: 1294px;
     height: 215px;
-}
-
-section .main-content {
+    left: 65px;
     z-index: 1;
 }
 
@@ -20,6 +62,7 @@ section .main-content .header {
     width: 1150px;
     display: flex;
     justify-content: space-between;
+    margin-left: 40px;
 }
 
 section .main-content .header .hs-logo {
@@ -75,8 +118,6 @@ section .main-content .contact-info .email {
 
 section .personal-zone {
     width: 1294px;
-    position: absolute;
-    z-index: 2;
 }
 
 section .personal-zone .profile-header {
@@ -151,6 +192,7 @@ section .personal-zone .edit-zone .button-save {
     height: 45px;
     background: #31C2E4;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 section .personal-zone .edit-zone .button-save p {

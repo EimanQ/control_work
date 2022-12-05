@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { request } from '../../hooks/http.hook';
 import { useScrollBar } from '../../hooks/use-scrollbar';
-import { userName, userEmail, userID } from '../../context/auth'
 import style from './TaskContent.module.css';
 import TaskItem from './TaskItem';
 
@@ -19,6 +18,13 @@ const TaskContent = () => {
 
     const currentID = state.id;
     const currentUserName = state.name;
+    const currentEmail = state.email;
+
+    const navigate = useNavigate()
+
+    const goCabinet = () => {
+        navigate('/cabinet', { state: { id: currentID, name: currentUserName, email: currentEmail } })
+    }
 
     const taskWrapper = useRef(null);
     const hasScroll = task.length > 15;
@@ -53,6 +59,13 @@ const TaskContent = () => {
     return (
         <>
             <section className={style['task-section']}>
+
+                <aside className={style['aside-panel']}>
+                    <div className={style['burger']}></div>
+                    <div className={style['select-cube']}></div>
+                    <div className={style['settings']} onClick={goCabinet}></div>
+                </aside>
+
                 <div className={style['main']}>
                     <div className={style['header']}>
                         <div className={style['hs-logo']}></div>
