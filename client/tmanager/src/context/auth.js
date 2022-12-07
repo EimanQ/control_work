@@ -6,4 +6,12 @@ const userID = {
     id: 0
 }
 
-export { auth, userID }
+const userEmail = {
+    email: null
+}
+
+const userName = {
+    name: null
+}
+
+export { auth, userID, userEmail, userName }
