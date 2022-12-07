@@ -2,11 +2,13 @@
 
 .main-section {
     display: flex;
-    margin: 35px 52px;
+    margin: 35px 0px;
+    position: relative;
 }
 
+
 .reg-bar {
-    margin-top: 120px;
+    margin: 120px 52px;
 }
 
 .info-title {
@@ -76,6 +78,6 @@
     position: absolute;
     width: 1050px;
     height: 178px;
-    left: 0;
-    top: 500px;
+    left: 0px;
+    top: 392px;
 }
