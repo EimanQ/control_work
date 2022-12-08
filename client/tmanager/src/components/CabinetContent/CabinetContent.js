@@ -1,18 +1,34 @@
+import { useEffect, useState } from 'react';
 import style from './Cabinet.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const CabinetContent = () => {
 
+    const [saveBtn, setSaveBtn] = useState(false);
+
+    const [updateName, setUpdateName] = useState(``);
+
+    const [updateEmail, setUpdateEmail] = useState(``);
+
+    const [updatePass, setUpdatePass] = useState(``);
+
     const { state } = useLocation();
 
     const currentID = state.id;
-    const currentUserName = state.name;
-    const currentEmail = state.email;
+    let currentUserName = state.name;
+    let currentEmail = state.email;
 
     const navigate = useNavigate();
 
     const goTaskManager = () => {
         navigate('/tasks', { state: { id: currentID, name: currentUserName, email: currentEmail } })
+    }
+
+    const sendUpdates = async () => {
+
+        if (updateName) { };
+        if (updateEmail) { };
+        if (updatePass) { };
     }
 
     return (
@@ -52,17 +68,17 @@ const CabinetContent = () => {
                             <div className={style['edit-zone']}>
                                 <div className={style['name-zone']}>
                                     <p>New Name</p>
-                                    <input className={style['name-input']} placeholder='Full Name' type='text'></input>
+                                    <input className={style['name-input']} placeholder='Full Name' type='text' onChange={(e) => setUpdateName(e.target.value)}></input>
                                 </div>
                                 <div className={style['email-zone']}>
                                     <p>New Email</p>
-                                    <input className={style['email-input']} placeholder='Email'></input>
+                                    <input className={style['email-input']} placeholder='Email' onChange={(e) => setUpdateEmail(e.target.value)}></input>
                                 </div>
                                 <div className={style['pass-zone']} >
                                     <p>New Password</p>
-                                    <input className={style['pass-input']} placeholder='Password' type='number'></input>
+                                    <input className={style['pass-input']} placeholder='Password' type='number' onChange={(e) => setUpdatePass(e.target.value)}></input>
                                 </div>
-                                <div className={style['button-save']}>
+                                <div className={style['button-save']} onClick={sendUpdates}>
                                     <p>Save</p>
                                 </div>
                             </div>

@@ -171,6 +171,7 @@ section .personal-zone .edit-zone p {
 }
 
 section .personal-zone .edit-zone input {
+    outline: none;
     background: #FFFFFF;
     border: 2px solid rgba(74, 74, 74, 0.2);
     border-radius: 10px;
