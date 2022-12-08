@@ -1,6 +1,4 @@
-const {
-    pool
-} = require("../db");
+const { pool } = require("../db");
 
 const findUserDB = async (email, password) => {
     const client = await pool.connect();
@@ -45,6 +43,70 @@ const createUserDB = async (name, email, password) => {
     }
 }
 
-module.exports = {
-    findUserDB, createUserDB
+const updateNameDB = async (id, name) => {
+    const client = await pool.connect();
+    try {
+        await client.query(`BEGIN`);
+
+        const sqlUpdateName = `
+        UPDATE users
+        SET fullname = $1
+        WHERE id = $2
+        `;
+
+        const result = (await client.query(sqlUpdateName, [name, id])).rows;
+
+        await client.query(`COMMIT`);
+
+        return result
+    } catch (error) {
+        await client.query(`ROLLBACK`);
+        return error.message;
+    }
 }
+
+const updateEmail = async (id, email) => {
+    const client = await pool.connect();
+    try {
+        await client.query(`BEGIN`);
+
+        const sqlUpdateEmail = `
+        UPDATE users
+        SET email = $1
+        WHERE id = $2
+        `;
+
+        const result = (await client.query(sqlUpdateEmail, [email, id])).rows;
+
+        await client.query(`COMMIT`);
+
+        return result
+    } catch (error) {
+        await client.query(`ROLLBACK`);
+        return error.message;
+    }
+}
+
+const updatePassDB = async (id, pass) => {
+    const client = await pool.connect();
+    try {
+        await client.query(`BEGIN`);
+
+        const sqlUpdatePass = `
+        UPDATE users
+        SET password = $1
+        WHERE id = $2
+        `;
+
+        const result = (await client.query(sqlUpdatePass, [pass, id])).rows;
+
+        await client.query(`COMMIT`);
+
+        return result
+    } catch (error) {
+        await client.query(`ROLLBACK`);
+        return error.message;
+    }
+}
+
+module.exports = { findUserDB, createUserDB, updateNameDB, updateEmail, updatePassDB }

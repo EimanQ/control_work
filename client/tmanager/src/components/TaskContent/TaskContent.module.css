@@ -172,6 +172,7 @@ input::-webkit-inner-spin-button {
 }
 
 .work-zone .to-do-list input {
+    outline: none;
     padding-left: 13px;
     font-family: 'Poppins';
     font-style: normal;
@@ -190,7 +191,6 @@ input::-webkit-inner-spin-button {
 }
 
 .work-zone .to-do-list .to-do-update-inputs {
-
     display: flex;
     margin-top: 10px;
     width: 337.82px;
@@ -198,7 +198,7 @@ input::-webkit-inner-spin-button {
 }
 
 .work-zone .to-do-list .to-do-update-inputs input {
-
+    outline: none;
     background: #FFFFFF;
     border: 2px solid rgba(74, 74, 74, 0.2);
     border-radius: 10px;

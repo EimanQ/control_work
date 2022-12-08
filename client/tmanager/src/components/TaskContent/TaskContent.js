@@ -8,10 +8,15 @@ import TaskItem from './TaskItem';
 const TaskContent = () => {
 
     const [saveButton, setSaveButton] = useState(false);
+
     const [task, setTask] = useState([]);
+
     const [createTask, setCreateTask] = useState(``);
+
     const [updateTaskNumber, setUpdateTaskNumber] = useState(``);
+    
     const [updateTask, setUpdateTask] = useState(``);
+    
     const [deleteTask, setDeleteTask] = useState(``);
 
     const { state } = useLocation();
