@@ -73,9 +73,7 @@ const updateTaskDB = async (task, tasknumber, id) => {
 
 const deleteTaskDB = async (tasknumber, id) => {
     const client = await pool.connect();
-
-    console.log(tasknumber, id);
-
+    
     try {
         await client.query(`BEGIN`);
 
