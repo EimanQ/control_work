@@ -43,6 +43,27 @@ const createUserDB = async (name, email, password) => {
     }
 }
 
+const getUserDataDB = async (id) => {
+    const client = await pool.connect();
+    try {
+        await client.query(`BEGIN`);
+
+        const sqlGetData = `
+        SELECT fullname, email FROM users
+        WHERE id = $1;
+        `
+
+        const result = (await client.query(sqlGetData, [id])).rows;
+
+        await client.query(`COMMIT`)
+
+        return result
+    } catch (error) {
+        await client.query(`ROLLBACK`);
+        return error.message;
+    }
+}
+
 const updateNameDB = async (id, name) => {
     const client = await pool.connect();
     try {
@@ -109,4 +130,4 @@ const updatePassDB = async (id, pass) => {
     }
 }
 
-module.exports = { findUserDB, createUserDB, updateNameDB, updateEmail, updatePassDB }
+module.exports = { findUserDB, createUserDB, getUserDataDB, updateNameDB, updateEmail, updatePassDB }

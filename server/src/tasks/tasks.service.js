@@ -17,7 +17,7 @@ const createTask = async (task, id) => {
     try {
         const createdTaskDB = await createTaskDB(task, id);
         if (!Array.isArray(createdTaskDB)) throw new Error(`Something is wrong`);
-        return [JSON.stringify(true)];
+        return JSON.stringify(true);
     } catch (error) {
         return JSON.stringify(false, error.message);
     }
@@ -26,9 +26,8 @@ const createTask = async (task, id) => {
 const updateTask = async (task, tasknumber, id) => {
     try {
         const updatedTaskDB = await updateTaskDB(task, tasknumber, id);
-        console.log(`Обновление`,updatedTaskDB);
         if (!Array.isArray(updatedTaskDB)) throw new Error(`Something is wrong`);
-        return [JSON.stringify(true)];
+        return JSON.stringify(true);
     } catch (error) {
         return JSON.stringify(false, error.message);
     }
@@ -37,9 +36,8 @@ const updateTask = async (task, tasknumber, id) => {
 const deleteTask = async (tasknumber, id) => {
     try {
         const deletedTask = await deleteTaskDB(tasknumber, id)
-        console.log(`удаление`,deletedTask);
         if (!Array.isArray(deletedTask)) throw new Error(`Something is wrong`);
-        return [JSON.stringify(true)];
+        return JSON.stringify(true);
     } catch (error) {
         return JSON.stringify(false, error.message);
     }

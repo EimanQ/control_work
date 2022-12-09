@@ -1,10 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import style from './Cabinet.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { request } from '../../hooks/http.hook';
 
 const CabinetContent = () => {
 
-    const [saveBtn, setSaveBtn] = useState(false);
+    const [userInfo, setUserInfo] = useState([]);
+
+    const [infoState, setInfoState] = useState(true);
 
     const [updateName, setUpdateName] = useState(``);
 
@@ -15,21 +18,48 @@ const CabinetContent = () => {
     const { state } = useLocation();
 
     const currentID = state.id;
-    let currentUserName = state.name;
-    let currentEmail = state.email;
 
     const navigate = useNavigate();
 
     const goTaskManager = () => {
-        navigate('/tasks', { state: { id: currentID, name: currentUserName, email: currentEmail } })
+        navigate('/tasks', { state: { id: currentID, name: userInfo[1][0].fullname, email: userInfo[1][0].email } })
     }
 
     const sendUpdates = async () => {
-
-        if (updateName) { };
-        if (updateEmail) { };
-        if (updatePass) { };
+        if (updateName.length > 0) {
+            const responseUpdateName = await request(`http://localhost:3003/users/updateName/${currentID}`, `PATCH`, { id: currentID, name: updateName })
+            if (responseUpdateName) {
+                if (!infoState) setInfoState(true)
+                else setInfoState(false)
+            }
+        };
+        if (updateEmail.length > 0) {
+            const responseUpdateEmail = await request(`http://localhost:3003/users/updateEmail/${currentID}`, `PATCH`, { id: currentID, email: updateEmail })
+            if (responseUpdateEmail) {
+                if (!infoState) setInfoState(true)
+                else setInfoState(false)
+            }
+        };
+        if (updatePass.length > 0) {
+            const responseUpdatePass = await request(`http://localhost:3003/users/updatePass/${currentID}`, `PATCH`, { id: currentID, pass: updatePass })
+            if (responseUpdatePass) {
+                if (!infoState) setInfoState(true)
+                else setInfoState(false)
+            }
+        };
     }
+
+    useEffect(() => {
+
+        const requestDB = async () => {
+            const responseGet = await request(`http://localhost:3003/users/getData/${currentID}`, 'GET');
+            return setUserInfo(responseGet);
+        }
+        requestDB();
+
+        console.log(infoState);
+
+    }, [infoState, currentID])
 
     return (
         <>
@@ -56,8 +86,8 @@ const CabinetContent = () => {
                             </div>
 
                             <div className={style['contact-info']}>
-                                <p className={style['name']}>{currentUserName}</p>
-                                <p className={style['email']}>{currentEmail}</p>
+                                <p className={style['name']}>{userInfo.length > 0 ? userInfo[1][0].fullname : null}</p>
+                                <p className={style['email']}>{userInfo.length > 0 ? userInfo[1][0].email : null}</p>
                             </div>
                         </div>
 

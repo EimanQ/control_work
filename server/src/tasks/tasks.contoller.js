@@ -15,17 +15,13 @@ router.post('/createTask', async (request, response) => {
 })
 
 router.patch('/updateTask', async (request, response) => {
-    console.log(`+ update`);
     const { task, tasknumber, id } = request.body;
-    console.log(task, tasknumber, id);
     const updatedTask = await updateTask(task, tasknumber, id);
     response.status(200).send(updatedTask);
 })
 
 router.delete('/deleteTask', async (request, response) => {
-    console.log(`+ delete`);
     const { tasknumber, id } = request.body;
-    console.log(tasknumber, id);
     const deletedTask = await deleteTask(tasknumber, id);
     response.status(200).send(deletedTask);
 })

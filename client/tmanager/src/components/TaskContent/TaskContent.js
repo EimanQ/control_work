@@ -7,16 +7,16 @@ import TaskItem from './TaskItem';
 
 const TaskContent = () => {
 
-    const [saveButton, setSaveButton] = useState(false);
+    const [saveButton, setSaveButton] = useState(true);
 
     const [task, setTask] = useState([]);
 
     const [createTask, setCreateTask] = useState(``);
 
     const [updateTaskNumber, setUpdateTaskNumber] = useState(``);
-    
+
     const [updateTask, setUpdateTask] = useState(``);
-    
+
     const [deleteTask, setDeleteTask] = useState(``);
 
     const { state } = useLocation();
@@ -36,22 +36,31 @@ const TaskContent = () => {
     useScrollBar(taskWrapper, hasScroll);
 
     const sendCRUD = async () => {
-        setSaveButton(true)
         if (createTask.length > 0) {
             const responseCreate = await request(`http://localhost:3003/tasks/createTask`, 'POST', { task: createTask, id: currentID });
-            if (responseCreate[0]) setSaveButton(false)
+            if (responseCreate) {
+                if (!setSaveButton) setSaveButton(true)
+                else setSaveButton(false)
+            }
         }
-
         if (updateTaskNumber.length > 0 && updateTask.length > 0) {
+            console.log(`update`);
             const responseUpdate = await request(`http://localhost:3003/tasks/updateTask`, 'PATCH', { task: updateTask, tasknumber: task[updateTaskNumber - 1].id, id: currentID });
-            if (responseUpdate[0]) setSaveButton(false)
+            if (responseUpdate) {
+                if (!setSaveButton) setSaveButton(true)
+                else setSaveButton(false)
+            }
         }
 
         if (deleteTask.length > 0) {
             const responseDelete = await request(`http://localhost:3003/tasks/deleteTask`, 'DELETE', { tasknumber: task[deleteTask - 1].id, id: currentID });
-            if (responseDelete[0]) setSaveButton(false)
+            if (responseDelete) {
+                if (!setSaveButton) setSaveButton(true)
+                else setSaveButton(false)
+            }
         }
     }
+
     useEffect(() => {
         const requestDB = async () => {
             const responseGet = await request(`http://localhost:3003/tasks/get/${currentID}`, 'GET');
