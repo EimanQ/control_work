@@ -36,6 +36,7 @@ const TaskContent = () => {
     useScrollBar(taskWrapper, hasScroll);
 
     const sendCRUD = async () => {
+
         if (createTask.length > 0) {
             const responseCreate = await request(`http://localhost:3003/tasks/createTask`, 'POST', { task: createTask, id: currentID });
             if (responseCreate) {
@@ -43,8 +44,8 @@ const TaskContent = () => {
                 else setSaveButton(false)
             }
         }
+
         if (updateTaskNumber.length > 0 && updateTask.length > 0) {
-            console.log(`update`);
             const responseUpdate = await request(`http://localhost:3003/tasks/updateTask`, 'PATCH', { task: updateTask, tasknumber: task[updateTaskNumber - 1].id, id: currentID });
             if (responseUpdate) {
                 if (!setSaveButton) setSaveButton(true)
@@ -62,11 +63,14 @@ const TaskContent = () => {
     }
 
     useEffect(() => {
+
         const requestDB = async () => {
             const responseGet = await request(`http://localhost:3003/tasks/get/${currentID}`, 'GET');
             return setTask(responseGet);
         }
+
         requestDB()
+
     }, [saveButton, currentID]);
 
 

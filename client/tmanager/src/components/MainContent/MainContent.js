@@ -1,8 +1,8 @@
 import style from './MainContent.module.css'
-import { auth } from '../../context/auth'
 
 const MainContent = () => {
     return (
+
         <section className={style['main-section']}>
             <div className={style["reg-bar"]}>
                 <p className={style["info-title"]}>Task Management & To-Do List</p>
@@ -21,6 +21,7 @@ const MainContent = () => {
             <div className={style["wave"]}></div>
             <div className={style["footage"]}></div>
         </section>
+
     );
 }
 export default MainContent

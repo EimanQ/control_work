@@ -1,6 +1,4 @@
-const {
-    json
-} = require("express");
+const { json } = require("express");
 const { getTasksDB, createTaskDB, updateTaskDB, deleteTaskDB } = require("./tasks.repository");
 
 const getTasks = async (id) => {

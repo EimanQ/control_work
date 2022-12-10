@@ -16,8 +16,10 @@ const findUserDB = async (email, password) => {
 
         return result
     } catch (error) {
+
         await client.query(`ROLLBACK`);
         return error.message;
+        
     }
 }
 
@@ -38,8 +40,10 @@ const createUserDB = async (name, email, password) => {
 
         return result
     } catch (error) {
+
         await client.query(`ROLLBACK`);
         return error.message;
+
     }
 }
 
@@ -59,8 +63,10 @@ const getUserDataDB = async (id) => {
 
         return result
     } catch (error) {
+
         await client.query(`ROLLBACK`);
         return error.message;
+
     }
 }
 
@@ -81,8 +87,10 @@ const updateNameDB = async (id, name) => {
 
         return result
     } catch (error) {
+
         await client.query(`ROLLBACK`);
         return error.message;
+
     }
 }
 
@@ -103,8 +111,10 @@ const updateEmail = async (id, email) => {
 
         return result
     } catch (error) {
+
         await client.query(`ROLLBACK`);
         return error.message;
+
     }
 }
 
@@ -125,8 +135,10 @@ const updatePassDB = async (id, pass) => {
 
         return result
     } catch (error) {
+
         await client.query(`ROLLBACK`);
         return error.message;
+
     }
 }
 

@@ -1,6 +1,4 @@
-const {
-    pool
-} = require("../db");
+const { pool } = require("../db");
 
 const getTasksDB = async (id) => {
     const client = await pool.connect()
@@ -63,7 +61,7 @@ const updateTaskDB = async (task, tasknumber, id) => {
         await client.query(`COMMIT`);
 
         return result;
-        
+
     } catch (error) {
 
         await client.query(`ROLLBACK`);
@@ -73,7 +71,7 @@ const updateTaskDB = async (task, tasknumber, id) => {
 
 const deleteTaskDB = async (tasknumber, id) => {
     const client = await pool.connect();
-    
+
     try {
         await client.query(`BEGIN`);
 
@@ -101,7 +99,5 @@ const deleteTaskDB = async (tasknumber, id) => {
 }
 
 
-module.exports = {
-    getTasksDB, createTaskDB, updateTaskDB, deleteTaskDB
-}
+module.exports = { getTasksDB, createTaskDB, updateTaskDB, deleteTaskDB }
 

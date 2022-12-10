@@ -26,6 +26,7 @@ const LoginContent = () => {
     }
 
     return (
+
         <section className={style["login-section"]}>
             {
                 auth.isMain = false
@@ -49,6 +50,7 @@ const LoginContent = () => {
             <div className={style["task-footage"]}></div>
         </section>
     )
+    
 }
 
 export default LoginContent

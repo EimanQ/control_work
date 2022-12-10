@@ -1,4 +1,5 @@
 const request = async (url, method, body = null, headers = {}) => {
+
     try {
         if (body) {
             body = JSON.stringify(body);
@@ -12,6 +13,7 @@ const request = async (url, method, body = null, headers = {}) => {
     } catch (error) {
         console.log(error.message);
     }
-}
+    
+};
 
 export { request }
