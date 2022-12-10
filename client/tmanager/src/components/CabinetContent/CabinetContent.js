@@ -26,6 +26,7 @@ const CabinetContent = () => {
     }
 
     const sendUpdates = async () => {
+
         if (updateName.length > 0) {
             const responseUpdateName = await request(`http://localhost:3003/users/updateName/${currentID}`, `PATCH`, { id: currentID, name: updateName })
             if (responseUpdateName) {
@@ -33,6 +34,7 @@ const CabinetContent = () => {
                 else setInfoState(false)
             }
         };
+
         if (updateEmail.length > 0) {
             const responseUpdateEmail = await request(`http://localhost:3003/users/updateEmail/${currentID}`, `PATCH`, { id: currentID, email: updateEmail })
             if (responseUpdateEmail) {
@@ -40,6 +42,7 @@ const CabinetContent = () => {
                 else setInfoState(false)
             }
         };
+
         if (updatePass.length > 0) {
             const responseUpdatePass = await request(`http://localhost:3003/users/updatePass/${currentID}`, `PATCH`, { id: currentID, pass: updatePass })
             if (responseUpdatePass) {
@@ -63,6 +66,7 @@ const CabinetContent = () => {
 
     return (
         <>
+
             <section>
 
                 <aside className={style['aside-panel']}>
@@ -116,6 +120,7 @@ const CabinetContent = () => {
                     </div>
                 </div>
             </section>
+            
         </>
     )
 }

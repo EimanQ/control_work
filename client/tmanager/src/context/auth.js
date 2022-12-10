@@ -4,14 +4,14 @@ const auth = {
 
 const userID = {
     id: 0
-}
+};
 
 const userEmail = {
     email: null
-}
+};
 
 const userName = {
     name: null
-}
+};
 
-export { auth, userID, userEmail, userName }
+export { auth, userID, userEmail, userName };

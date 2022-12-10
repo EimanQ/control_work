@@ -5,5 +5,4 @@ const TaskItem = ({ itemObject }) => {
         </>
     )
 }
-
 export default TaskItem

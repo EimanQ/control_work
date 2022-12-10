@@ -41,6 +41,4 @@ router.patch("/updatePass/:id", async (request, response) => {
     response.status(200).send(updatedPass)
 })
 
-
-
 module.exports = router;

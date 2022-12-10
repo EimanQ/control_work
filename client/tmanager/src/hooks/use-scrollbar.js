@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { OverlayScrollbars } from 'overlayscrollbars';
 
-const config = {
-};
+const config = {};
 
 const useScrollBar = (root, hasScroll) => {
-    useEffect(() => {
-        let scrollbar;
 
+    useEffect(() => {
+
+        let scrollbar;
 
         if (root.current && hasScroll) {
             scrollbar = OverlayScrollbars(root.current, config);
@@ -19,6 +19,7 @@ const useScrollBar = (root, hasScroll) => {
             }
         }
     }, [root, hasScroll])
+
 }
 
 export { useScrollBar };
