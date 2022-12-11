@@ -18,7 +18,7 @@ const useScrollBar = (root, hasScroll) => {
                 scrollbar.destroy();
             }
         }
-    }, [root, hasScroll])
+    }, [root, hasScroll]);
 
 }
 
