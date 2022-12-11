@@ -23,31 +23,31 @@ const CabinetContent = () => {
 
     const goTaskManager = () => {
         navigate('/tasks', { state: { id: currentID, name: userInfo[1][0].fullname, email: userInfo[1][0].email } })
-    }
+    };
 
     const sendUpdates = async () => {
 
         if (updateName.length > 0) {
             const responseUpdateName = await request(`http://localhost:3003/users/updateName/${currentID}`, `PATCH`, { id: currentID, name: updateName })
             if (responseUpdateName) {
-                if (!infoState) setInfoState(true)
-                else setInfoState(false)
+                if (!infoState) setInfoState(true);
+                else setInfoState(false);
             }
         };
 
         if (updateEmail.length > 0) {
             const responseUpdateEmail = await request(`http://localhost:3003/users/updateEmail/${currentID}`, `PATCH`, { id: currentID, email: updateEmail })
             if (responseUpdateEmail) {
-                if (!infoState) setInfoState(true)
-                else setInfoState(false)
+                if (!infoState) setInfoState(true);
+                else setInfoState(false);
             }
         };
 
         if (updatePass.length > 0) {
             const responseUpdatePass = await request(`http://localhost:3003/users/updatePass/${currentID}`, `PATCH`, { id: currentID, pass: updatePass })
             if (responseUpdatePass) {
-                if (!infoState) setInfoState(true)
-                else setInfoState(false)
+                if (!infoState) setInfoState(true);
+                else setInfoState(false);
             }
         };
     }
@@ -60,9 +60,7 @@ const CabinetContent = () => {
         }
         requestDB();
 
-        console.log(infoState);
-
-    }, [infoState, currentID])
+    }, [infoState, currentID]);
 
     return (
         <>

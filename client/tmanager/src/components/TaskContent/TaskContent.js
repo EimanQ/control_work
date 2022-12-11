@@ -28,7 +28,7 @@ const TaskContent = () => {
     const navigate = useNavigate()
 
     const goCabinet = () => {
-        navigate('/cabinet', { state: { id: currentID, name: currentUserName, email: currentEmail } })
+        navigate('/cabinet', { state: { id: currentID, name: currentUserName, email: currentEmail } });
     }
 
     const taskWrapper = useRef(null);
@@ -40,36 +40,36 @@ const TaskContent = () => {
         if (createTask.length > 0) {
             const responseCreate = await request(`http://localhost:3003/tasks/createTask`, 'POST', { task: createTask, id: currentID });
             if (responseCreate) {
-                if (!setSaveButton) setSaveButton(true)
-                else setSaveButton(false)
+                if (!setSaveButton) setSaveButton(true);
+                else setSaveButton(false);
             }
         }
 
         if (updateTaskNumber.length > 0 && updateTask.length > 0) {
             const responseUpdate = await request(`http://localhost:3003/tasks/updateTask`, 'PATCH', { task: updateTask, tasknumber: task[updateTaskNumber - 1].id, id: currentID });
             if (responseUpdate) {
-                if (!setSaveButton) setSaveButton(true)
-                else setSaveButton(false)
+                if (!setSaveButton) setSaveButton(true);
+                else setSaveButton(false);
             }
         }
 
         if (deleteTask.length > 0) {
             const responseDelete = await request(`http://localhost:3003/tasks/deleteTask`, 'DELETE', { tasknumber: task[deleteTask - 1].id, id: currentID });
             if (responseDelete) {
-                if (!setSaveButton) setSaveButton(true)
-                else setSaveButton(false)
-            }
-        }
-    }
+                if (!setSaveButton) setSaveButton(true);
+                else setSaveButton(false);
+            };
+        };
+    };
 
     useEffect(() => {
 
         const requestDB = async () => {
             const responseGet = await request(`http://localhost:3003/tasks/get/${currentID}`, 'GET');
             return setTask(responseGet);
-        }
+        };
 
-        requestDB()
+        requestDB();
 
     }, [saveButton, currentID]);
 
