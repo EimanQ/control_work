@@ -9,13 +9,21 @@ import { Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <>
+    
       <Routes>
+
         <Route path="/" element={<Main />}></Route>
+
         <Route path="/login" element={<Login />}></Route>
+
         <Route path="/register" element={<Register />}></Route>
+
         <Route path="/tasks" element={<Tasks />}></Route>
+
         <Route path="/cabinet" element={<Cabinet />}></Route>
+
       </Routes>
+      
     </>
   );
 }

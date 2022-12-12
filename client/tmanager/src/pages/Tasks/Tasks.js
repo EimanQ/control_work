@@ -5,7 +5,9 @@ const Tasks = () => {
     return (
         <>
             <main>
+
                 <TaskContent />
+                
             </main>
         </>
     )
