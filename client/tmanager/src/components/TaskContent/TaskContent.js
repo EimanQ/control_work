@@ -85,17 +85,20 @@ const TaskContent = () => {
                 </aside>
 
                 <div className={style['main']}>
+
                     <div className={style['header']}>
                         <div className={style['hs-logo']}></div>
                         <a href='/'>
                             <div className={style['logout-button']}>
                                 <p>Log Out</p>
                             </div>
+                            
                         </a>
 
                     </div>
 
                     <div className={style['work-zone']}>
+
                         <div className={style['tasks-manager-list']}>
                             <p className={style['tasks-manager-title']}>Tasks Manager</p>
                             <p className={style['task-manager-info']}>Hello {currentUserName}! Add new tasks  with task manager from Hschool</p>
@@ -103,6 +106,7 @@ const TaskContent = () => {
                                 <div className={style['calendar-logo']}></div>
                                 <p className={style['tasks-counter']}>{task.length}</p>
                             </div>
+
                         </div>
 
                         <div className={style['to-do-list']}>
