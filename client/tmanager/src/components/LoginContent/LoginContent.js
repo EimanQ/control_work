@@ -12,17 +12,22 @@ const LoginContent = () => {
     const [passInput, setPassInput] = useState();
 
     const doLogin = async () => {
+        try {
+            const response = await request('http://localhost:3003/users/login', 'POST', { email: emailInput, password: passInput })
 
-        const response = await request('http://localhost:3003/users/login', 'POST', { email: emailInput, password: passInput })
+            if (response[0] != false) {
 
-        if (response[0] != false) {
+                userID.id = response[1][0].id;
+                userName.name = response[1][0].fullname;
+                userEmail.email = response[1][0].email;
 
-            userID.id = response[1][0].id;
-            userName.name = response[1][0].fullname;
-            userEmail.email = response[1][0].email;
+                navigate('/tasks', { state: { id: userID.id, name: userName.name, email: userEmail.email } });
+            }
+        } catch (error) {
 
-            navigate('/tasks', { state: { id: userID.id, name: userName.name, email: userEmail.email } });
         }
+
+
     }
 
     return (
@@ -48,9 +53,19 @@ const LoginContent = () => {
                 </div>
             </div>
             <div className={style["task-footage"]}></div>
-        </section>
+
+            <div className={style["pop-up-error"]}>
+                <div className={style["pop-up-error-container"]}>
+                    <div className={style["pop-up-error-body"]}>
+                        <p className={style["pop-up-error-title"]}>Something went wrong</p>
+                        <p className={style["pop-up-error-description"]}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        <div className={style["pop-up-error-button"]}>Close</div>
+                    </div>
+                </div>
+            </div>
+        </section >
     )
-    
+
 }
 
 export default LoginContent
