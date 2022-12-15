@@ -34,16 +34,14 @@ const createUserDB = async (name, email, password) => {
         RETURNING users.id, users.fullname, users.email
         `;
 
-        const result = (await client.query(sqlCreateUser, [name, email, password])).rows
+        const result = (await client.query(sqlCreateUser, [name, email, password])).rows;
 
         await client.query(`COMMIT`);
 
-        return result
+        return result;
     } catch (error) {
-
         await client.query(`ROLLBACK`);
         return error.message;
-
     }
 }
 
@@ -59,14 +57,12 @@ const getUserDataDB = async (id) => {
 
         const result = (await client.query(sqlGetData, [id])).rows;
 
-        await client.query(`COMMIT`)
+        await client.query(`COMMIT`);
 
-        return result
+        return result;
     } catch (error) {
-
         await client.query(`ROLLBACK`);
         return error.message;
-
     }
 }
 
@@ -85,12 +81,10 @@ const updateNameDB = async (id, name) => {
 
         await client.query(`COMMIT`);
 
-        return result
+        return result;
     } catch (error) {
-
         await client.query(`ROLLBACK`);
         return error.message;
-
     }
 }
 
@@ -109,12 +103,10 @@ const updateEmail = async (id, email) => {
 
         await client.query(`COMMIT`);
 
-        return result
+        return result;
     } catch (error) {
-
         await client.query(`ROLLBACK`);
         return error.message;
-
     }
 }
 
@@ -133,12 +125,10 @@ const updatePassDB = async (id, pass) => {
 
         await client.query(`COMMIT`);
 
-        return result
+        return result;
     } catch (error) {
-
         await client.query(`ROLLBACK`);
         return error.message;
-
     }
 }
 
