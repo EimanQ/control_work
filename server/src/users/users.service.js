@@ -7,7 +7,7 @@ const findUser = async (email, password) => {
         if (!Array.isArray(findedUserDB)) throw new Error(findedUserDB)
         return JSON.stringify([true, findedUserDB])
     } catch (error) {
-        return JSON.stringify(false);
+        return JSON.stringify([false, error.message]);
     }
 }
 

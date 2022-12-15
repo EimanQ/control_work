@@ -12,14 +12,14 @@ const findUserDB = async (email, password) => {
 
         const result = (await client.query(sqlFindUser, [email, password])).rows;
 
-        await client.query(`COMMIT`);
+        if (result.length != 0) {
+            await client.query(`COMMIT`);
+            return result;
+        } throw new Error(`This user is not found in the system or the password is incorrect!`);
 
-        return result
     } catch (error) {
-
         await client.query(`ROLLBACK`);
         return error.message;
-        
     }
 }
 
