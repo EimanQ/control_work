@@ -8,15 +8,10 @@ import TaskItem from './TaskItem';
 const TaskContent = () => {
 
     const [saveButton, setSaveButton] = useState(true);
-
     const [task, setTask] = useState([]);
-
     const [createTask, setCreateTask] = useState(``);
-
     const [updateTaskNumber, setUpdateTaskNumber] = useState(``);
-
     const [updateTask, setUpdateTask] = useState(``);
-
     const [deleteTask, setDeleteTask] = useState(``);
 
     const { state } = useLocation();
@@ -25,7 +20,7 @@ const TaskContent = () => {
     const currentUserName = state.name;
     const currentEmail = state.email;
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const goCabinet = () => {
         navigate('/cabinet', { state: { id: currentID, name: currentUserName, email: currentEmail } });
@@ -58,8 +53,9 @@ const TaskContent = () => {
             if (responseDelete) {
                 if (!setSaveButton) setSaveButton(true);
                 else setSaveButton(false);
-            };
-        };
+            }
+        }
+
     };
 
     useEffect(() => {
@@ -68,11 +64,9 @@ const TaskContent = () => {
             const responseGet = await request(`http://localhost:3003/tasks/get/${currentID}`, 'GET');
             return setTask(responseGet);
         };
-
         requestDB();
 
     }, [saveButton, currentID]);
-
 
     return (
         <>
