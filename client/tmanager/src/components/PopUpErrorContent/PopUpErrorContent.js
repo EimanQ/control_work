@@ -1,6 +1,7 @@
 import style from "./PopUpErrorContent.module.css"
 
 const PopUpError = (props) => {
+    
     return (props.trigger) ? (
         <div className={style["pop-up-error"]}>
             <div className={style["pop-up-error-container"]}>

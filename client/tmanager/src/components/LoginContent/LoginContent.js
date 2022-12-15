@@ -29,15 +29,17 @@ const LoginContent = () => {
             setPopUpError(error.message);
             setTriggerPoint(true);
         }
-
+        
     }
 
     return (
 
         <section className={style["login-section"]}>
+
             {
                 auth.isMain = false
             }
+
             <div className={style["login-bar"]}>
                 <p className={style["title-back"]}>Welcome back!</p>
                 <div className={style["inputs-login"]}>
