@@ -22,7 +22,7 @@ const MainContent = () => {
             <div className={style["footage"]}></div>
         </section>
 
-    );
+    )
 }
 export default MainContent
 
