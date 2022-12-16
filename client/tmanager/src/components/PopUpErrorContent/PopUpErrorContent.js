@@ -13,7 +13,6 @@ const PopUpError = (props) => {
             </div>
         </div>
     ) : null
-
 }
 
 export default PopUpError

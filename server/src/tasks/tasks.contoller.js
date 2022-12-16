@@ -4,8 +4,8 @@ const { getTasks, createTask, updateTask, deleteTask } = require("./tasks.servic
 
 router.get('/get/:id', async (request, response) => {
     const { id } = request.params;
-    const gotTasks = await getTasks(id)
-    response.status(200).send(gotTasks)
+    const gotTasks = await getTasks(id);
+    response.status(200).send(gotTasks);
 })
 
 router.post('/createTask', async (request, response) => {

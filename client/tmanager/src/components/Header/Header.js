@@ -20,9 +20,11 @@ const Header = () => {
                 auth.isMain ? <div className={style['active-buttons']}>
                     <div className={style["nt-slider"]}></div>
                     <div className={style['text-header']}>
+
                         {
                             link.map((el) => <HeaderItems name={el}{...el} />)
                         }
+                        
                     </div>
                     <a href="/register">
                         <div className={style["registration"]}>

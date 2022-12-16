@@ -34,11 +34,11 @@ const createTaskDB = async (task, id) => {
         VALUES ($1,$2)
         RETURNING tasks.task, tasks.id`
 
-        const result = (await client.query(createTaskSql, [task, id])).rows
+        const result = (await client.query(createTaskSql, [task, id])).rows;
 
         await client.query(`COMMIT`);
 
-        return result
+        return result;
     } catch (error) {
         await client.query(`ROLLBACK`);
     }

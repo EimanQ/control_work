@@ -23,7 +23,9 @@ const RegisterContent = () => {
             navigate('/tasks', { state: { id: userID.id, name: userName.name, email: userEmail.email } });
         }
     }
+
     return (
+
         <>
             <section className={style["reg-section"]}>
                 <div className={style["reg-zone"]}>
@@ -73,6 +75,7 @@ const RegisterContent = () => {
                 <div className={style["task-footage"]}></div>
             </section>
         </>
+        
     )
 }
 
