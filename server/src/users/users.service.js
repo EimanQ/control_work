@@ -17,7 +17,7 @@ const createUser = async (name, email, password) => {
         if (!Array.isArray(createdUserDB)) throw new Error(createdUserDB);
         return JSON.stringify([true, createdUserDB]);
     } catch (error) {
-        return JSON.stringify(false);
+        return JSON.stringify([false, error.message]);
     }
 };
 
