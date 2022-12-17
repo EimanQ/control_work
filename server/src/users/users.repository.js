@@ -36,9 +36,11 @@ const createUserDB = async (name, email, password) => {
 
         const result = (await client.query(sqlCreateUser, [name, email, password])).rows;
 
-        await client.query(`COMMIT`);
+        if (result.length != 0) {
+            await client.query(`COMMIT`);
+            return result;
+        } throw new Error(`Unfortunately we can't register your account, try again later`);
 
-        return result;
     } catch (error) {
         await client.query(`ROLLBACK`);
         return error.message;
