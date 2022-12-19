@@ -1,7 +1,7 @@
 const { pool } = require("../db");
 
 const getTasksDB = async (id) => {
-    const client = await pool.connect()
+    const client = await pool.connect();
 
     try {
         await client.query(`BEGIN`);
@@ -11,13 +11,13 @@ const getTasksDB = async (id) => {
         JOIN users ON users.id = tasks.user_id
         GROUP BY tasks.id
         HAVING tasks.user_id = $1
-        `
+        `;
 
         const result = (await client.query(getTasksSql, [id])).rows
 
         await client.query(`COMMIT`);
 
-        return result
+        return result;
     } catch (error) {
         await client.query(`ROLLBACK`);
     }
@@ -32,7 +32,8 @@ const createTaskDB = async (task, id) => {
         const createTaskSql = `
         INSERT INTO tasks (task, user_id)
         VALUES ($1,$2)
-        RETURNING tasks.task, tasks.id`
+        RETURNING tasks.task, tasks.id
+        `;
 
         const result = (await client.query(createTaskSql, [task, id])).rows;
 
@@ -78,17 +79,17 @@ const deleteTaskDB = async (tasknumber, id) => {
         const rewriteTaskNameSql = `
         SELECT task FROM tasks
         where id = $1;
-        `
+        `;
 
-        const result = (await client.query(rewriteTaskNameSql, [tasknumber])).rows
+        const result = (await client.query(rewriteTaskNameSql, [tasknumber])).rows;
 
 
         const deleteTaskSql = `
         DELETE FROM tasks
         WHERE id = $1 AND user_id = $2;
-        `
+        `;
 
-        await client.query(deleteTaskSql, [tasknumber, id])
+        await client.query(deleteTaskSql, [tasknumber, id]);
 
         await client.query(`COMMIT`);
 

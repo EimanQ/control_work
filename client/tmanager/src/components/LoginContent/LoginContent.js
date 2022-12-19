@@ -17,14 +17,15 @@ const LoginContent = () => {
     const doLogin = async () => {
 
         try {
-            const response = await request('http://localhost:3003/users/login', 'POST', { email: emailInput, password: passInput })
-            console.log(response);
+            const response = await request('http://localhost:3003/users/login', 'POST', { email: emailInput, password: passInput });
+
             if (response[0] != false) {
                 userID.id = response[1][0].id;
                 userName.name = response[1][0].fullname;
                 userEmail.email = response[1][0].email;
                 navigate('/tasks', { state: { id: userID.id, name: userName.name, email: userEmail.email } });
             } else throw new Error(response[1]);
+            
         } catch (error) {
             setPopUpError(error.message);
             setTriggerPoint(true);
