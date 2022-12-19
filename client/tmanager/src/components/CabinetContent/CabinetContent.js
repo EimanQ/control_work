@@ -22,7 +22,7 @@ const CabinetContent = () => {
     const navigate = useNavigate();
 
     const goTaskManager = () => {
-        navigate('/tasks', { state: { id: currentID, name: userInfo[1][0].fullname, email: userInfo[1][0].email } })
+        navigate('/tasks', { state: { id: currentID, name: userInfo[1][0].fullname, email: userInfo[1][0].email } });
     };
 
     const sendUpdates = async () => {

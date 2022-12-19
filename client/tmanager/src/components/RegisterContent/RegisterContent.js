@@ -30,7 +30,7 @@ const RegisterContent = () => {
 
             if (fPassInput !== sPassInput) throw new Error(`Your passwords have to match!`);
 
-            const response = await request('http://localhost:3003/users/register', 'POST', { name: nameInput, email: emailInput, password: fPassInput })
+            const response = await request('http://localhost:3003/users/register', 'POST', { name: nameInput, email: emailInput, password: fPassInput });
 
             if (response[0] != false) {
                 userID.id = response[1][0].id;
@@ -38,6 +38,7 @@ const RegisterContent = () => {
                 userEmail.email = response[1][0].email;
                 navigate('/tasks', { state: { id: userID.id, name: userName.name, email: userEmail.email } });
             } else throw new Error(response[1]);
+            
         } catch (error) {
             setPopUpError(error.message);
             setTriggerPoint(true);
